@@ -1,10 +1,23 @@
 package com.example.tutoring.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+@Getter
+@DynamicUpdate
+@DynamicInsert
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Student extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,4 +28,9 @@ public class Student extends BaseEntity{
 
     @Column(nullable = false)
     private String email;
+
+    @OneToMany(mappedBy = "student")
+    private List<Class> classes = new ArrayList<>();
+
+
 }

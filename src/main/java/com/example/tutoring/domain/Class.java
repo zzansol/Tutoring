@@ -1,13 +1,24 @@
 package com.example.tutoring.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import org.springframework.data.annotation.Id;
+import com.example.tutoring.domain.enums.ClassStatus;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
 
+@Entity
+@Getter
+@DynamicUpdate
+@DynamicInsert
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Class extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +35,18 @@ public class Class extends BaseEntity{
 
     @Column(nullable = false)
     private Duration duration;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private ClassStatus status;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "tutor_id") // FK
+    private Tutor tutor;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "student_id") // FK
+    private Student student;
 
 
 
