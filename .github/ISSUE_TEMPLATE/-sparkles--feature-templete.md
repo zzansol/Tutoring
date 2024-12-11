@@ -1,7 +1,7 @@
 ---
-name: Feature request
+name: ":sparkles: Feature templete"
 about: Suggest an idea for this project
-title: ''
+title: ":sparkles: [feat] : "
 labels: ''
 assignees: ''
 
