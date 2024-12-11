@@ -1,7 +1,7 @@
 ---
-name: ":sparkles: Feature templete"
+name: "✨ Feature templete"
 about: Suggest an idea for this project
-title: ":sparkles: [feat] : "
+title: "✨ [feat] : "
 labels: ''
 assignees: ''
 
@@ -18,6 +18,3 @@ assignees: ''
 - [ ] TODO
 
 ## 참고할만한 자료(선택)
-
-**Additional context**
-Add any other context or screenshots about the feature request here.
