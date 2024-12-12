@@ -1,6 +1,6 @@
 package com.example.tutoring.domain;
 
-import com.example.tutoring.domain.enums.ClassStatus;
+import com.example.tutoring.domain.enums.LessonStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -38,7 +38,7 @@ public class Lesson extends BaseEntity{
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, columnDefinition = "VARCHAR(255) DEFAULT 'AVAILABLE'")
-    private ClassStatus status;
+    private LessonStatus status;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "tutor_id") // FK

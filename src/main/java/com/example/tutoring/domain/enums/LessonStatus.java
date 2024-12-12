@@ -1,5 +1,5 @@
 package com.example.tutoring.domain.enums;
 
-public enum ClassStatus {
+public enum LessonStatus {
     AVAILABLE, UNAVAILABLE
 }
