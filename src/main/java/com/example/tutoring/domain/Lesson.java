@@ -37,7 +37,7 @@ public class Lesson extends BaseEntity{
     private Duration duration;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "VARCHAR(255) DEFAULT 'AVAILABLE'")
     private ClassStatus status;
 
     @ManyToOne(fetch = FetchType.LAZY)
