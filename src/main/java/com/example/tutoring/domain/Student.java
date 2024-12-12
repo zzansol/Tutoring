@@ -30,7 +30,7 @@ public class Student extends BaseEntity{
     private String email;
 
     @OneToMany(mappedBy = "student")
-    private List<Class> classes = new ArrayList<>();
+    private List<Lesson> lessons = new ArrayList<>();
 
 
 }

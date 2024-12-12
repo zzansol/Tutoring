@@ -1,6 +1,6 @@
 package com.example.tutoring.domain;
 
-import com.example.tutoring.domain.enums.ClassStatus;
+import com.example.tutoring.domain.enums.LessonStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Class extends BaseEntity{
+public class Lesson extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -37,8 +37,8 @@ public class Class extends BaseEntity{
     private Duration duration;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private ClassStatus status;
+    @Column(nullable = false, columnDefinition = "VARCHAR(255) DEFAULT 'AVAILABLE'")
+    private LessonStatus status;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "tutor_id") // FK
