@@ -30,5 +30,5 @@ public class Tutor extends BaseEntity{
     private String email;
 
     @OneToMany(mappedBy = "tutor") // Schedule의 tutor 필드가 주인
-    private List<Class> classes = new ArrayList<>();
+    private List<Lesson> lessons = new ArrayList<>();
 }
